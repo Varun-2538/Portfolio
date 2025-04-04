@@ -27,6 +27,9 @@ import {
     kzilla,
     xyz,
     ReportEase,
+    mintvault,
+    astrogpt,
+    velocity,
     
   } from "../assets";
   
@@ -121,7 +124,35 @@ import {
   
   const experiences = [
     {
-      title: "Associate Tech lead ",
+      title: "Smart Account and Module Team Intern",
+      company_name: "Biconomy",
+      icon: xyz, // Replace with the actual icon variable or path
+      iconBg: "#383E56",
+      date: "April 2024 - December 2024",
+      points: [
+        "Implemented Biconomy Smart Account V2 as the foundation for AutoTx, integrating session keys and permissions for seamless functionality.",
+        "Developed a cross-chain donation feature using Biconomy Smart Account and session keys, enabling Gitcoin grants donations.",
+        "Revamped FundPublicGoods.ai with Next.js, enhancing dynamic interactions with the deployed Smart Account contract.",
+        "Collaborated remotely with a global team, delivering scalable blockchain solutions for real-world applications.",
+        "Contributed to code optimization and testing, ensuring robust performance and reliability of smart account features."
+      ]
+    },
+    {
+      title: "Frontend Intern",
+      company_name: "Corelytics AI",
+      icon: tesla, // Replace with the actual icon variable or path
+      iconBg: "#383E56",
+      date: "September 2023 - December 2023",
+      points: [
+        "Created interactive web pages using Three.js for stunning visual elements and Tailwind CSS for responsive design.",
+        "Enhanced user interfaces with smooth animations, improving engagement and website aesthetics.",
+        "Collaborated with the development team to design and implement frontend features from wireframes to production.",
+        "Participated in code reviews and debugging sessions, maintaining high-quality code and optimal performance.",
+        "Contributed to the integration of modern design practices, elevating the overall user experience."
+      ]
+    },
+    {
+      title: "Crypto Domain Lead",
       company_name: "Blockchain Club SRM",
       icon: BCSRM,
       iconBg: "#383E56",
@@ -134,34 +165,7 @@ import {
         "Facilitated workshops and training sessions for new members on blockchain technology and development tools.",
     ],
     },
-    {
-      title: "UI/UX Designer",
-      company_name: "Kzilla",
-      icon: kzilla,
-      iconBg: "#E6DEDD",
-      date: "Oct 2022 - April 2023",
-      points: [
-        "Designed the homepage of the website and social media posts on Instagram, significantly improving user engagement.",
-        "Worked extensively with tools like Figma, Git, Github, Framer, and Javascript to create visually appealing designs.",
-        "Learned about open-source contribution, actively participating in various community-driven design projects.",
-        "Collaborated with the development team to ensure design consistency and user-friendly interfaces across platforms.",
-        "Conducted user experience research to better understand audience needs and preferences, informing design decisions.",
-    ],
-    },
-    {
-      title: "Tech Intern",
-      company_name: "Bharat Intern",
-      icon: xyz,
-      iconBg: "#383E56",
-      date: "Aug 2023 - Sept 2023",
-      points: [
-        "Collaborated with a dynamic team to create responsive web interfaces using React.js, Node.js, Three.js, and Tailwind CSS.",
-        "Developed a website using Three.js, incorporating email.js for enhanced customer service and user interaction.",
-        "Played a crucial role in the front-end development process, from conceptualization to deployment.",
-        "Implemented innovative features and animations using Three.js, elevating the user experience on the website.",
-        "Participated in code reviews and debugging sessions, ensuring high-quality code standards and website performance.",
-    ],
-    },
+    
     // {
     //   title: "Full stack Developer",
     //   company_name: "Meta",
@@ -229,6 +233,78 @@ import {
       ],
       image: ReportEase,
       source_code_link: "https://github.com/Varun-2538/ReportEase",
+    },
+    
+    {
+      name: "Mint Vault",
+      description:
+        "Mint Vault is a UPI-to-crypto onramp, enabling seamless INR-to-crypto conversion. It features ERC-4337 account abstracted for non-custodial smart wallets and gasless transactions via meta transaction relayers.",
+      tags: [
+        {
+          name: "Node.js",
+          color: "blue-text-gradient"
+        },
+        {
+          name: "React.js",
+          color: "green-text-gradient"
+        },
+        {
+          name: "Solidity",
+          color: "pink-text-gradient"
+        },
+      ],
+      image: mintvault, // Replace with actual image variable or path
+      source_code_link: "https://github.com/Varun-2538/Mint-Vault" // Update with actual link
+    },
+    {
+      name: "Velocity",
+      description:
+        "velocity is a decentralized social platform built on Polygon, featuring NFT creation and a bounty system via smart contracts. It leverages IPFS for decentralized storage and won 'Most Optimized Use of Shardeum Testnet' .",
+        tags: [
+          {
+            name: "React",
+            color: "blue-text-gradient"
+          },
+          {
+            name: "Solidity",
+            color: "green-text-gradient"
+          },
+          {
+            name: "IPFS",
+            color: "pink-text-gradient"
+          },
+          {
+            name: "Tailwind",
+            color: "orange-text-gradient"
+          }
+        ],
+      image: velocity,
+      source_code_link: "https://github.com/Varun-2538/Velocity",
+    },
+    {
+      name: "Astro GPT",
+      description:
+        "Astro GPT is an advanced astrology platform that combines Swiss Ephemeris for precise Kundali generation.it offers an interactive UI to explore planetary placements, house effects, and Vimshottari Dasha, alongside tailored remedies for life.",
+      tags: [
+        {
+          name: "React",
+          color: "blue-text-gradient"
+        },
+        {
+          name: "Vite",
+          color: "green-text-gradient"
+        },
+        {
+          name: "Swiss Ephemeris",
+          color: "pink-text-gradient"
+        },
+        {
+          name: "AI",
+          color: "orange-text-gradient"
+        }
+      ],
+      image: astrogpt, // Replace with an appropriate image variable from your assets
+      source_code_link: "https://github.com/Varun-2538/AstroGpt",
     },
     {
       name: "Predictive sports analysis",

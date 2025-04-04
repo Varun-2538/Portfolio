@@ -33,6 +33,9 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import ReportEase from "./ReportEase.png";
+import mintvault from "./mintvault.png";
+import astrogpt from "./astrogpt.png";
+import velocity from "./velocity.png";
 
 
 export {
@@ -68,4 +71,7 @@ export {
   jobit,
   tripguide,
   ReportEase,
+  mintvault,
+  astrogpt,
+  velocity,
 };
