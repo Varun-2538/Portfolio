@@ -232,7 +232,7 @@ import {
         },
       ],
       image: ReportEase,
-      source_code_link: "https://github.com/Varun-2538/ReportEase",
+      source_code_Link: "https://github.com/Varun-2538/ReportEase",
     },
     
     {
@@ -254,7 +254,7 @@ import {
         },
       ],
       image: mintvault, // Replace with actual image variable or path
-      source_code_link: "https://github.com/Varun-2538/Mint-Vault" // Update with actual link
+      source_code_Link: "https://github.com/Varun-2538/Mint-Vault" // Update with actual link
     },
     {
       name: "Velocity",
@@ -279,7 +279,7 @@ import {
           }
         ],
       image: velocity,
-      source_code_link: "https://github.com/Varun-2538/Velocity",
+      source_code_Link: "https://github.com/Varun-2538/Velocity",
     },
     {
       name: "Astro GPT",
@@ -304,7 +304,7 @@ import {
         }
       ],
       image: astrogpt, // Replace with an appropriate image variable from your assets
-      source_code_link: "https://github.com/Varun-2538/AstroGpt",
+      source_code_Link: "https://github.com/Varun-2538/AstroGpt",
     },
     {
       name: "Predictive sports analysis",
@@ -325,7 +325,7 @@ import {
         },
       ],
       image: jobit,
-      source_code_link: "https://github.com/Varun-2538/Predictive_sports_analysis",
+      source_code_Link: "https://github.com/Varun-2538/Predictive_sports_analysis",
     },
     {
       name: "Network Usage Tracker",
@@ -346,7 +346,7 @@ import {
         },
       ],
       image: tripguide,
-      source_code_link: "https://github.com/Varun-2538/Network-Usage-Tracker",
+      source_code_Link: "https://github.com/Varun-2538/Network-Usage-Tracker",
     },
   ];
   
