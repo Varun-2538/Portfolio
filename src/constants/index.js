@@ -307,25 +307,33 @@ import {
       source_code_Link: "https://github.com/Varun-2538/AstroGpt",
     },
     {
-      name: "Predictive sports analysis",
+      name: "Shadow",
       description:
-        "This Python-based tool is designed to analyze cricket matches ball by ball, providing insights into player performance, team strengths, weaknesses, and historical match data. ",
+        "A predictive crime analysis and deployment planner built with React.js, Node.js, and Mistral LLM. Features spatial, temporal, and beat-wise analysis views, predictive hotspot mapping, and demographic insights for actionable crime prevention strategies.",
       tags: [
         {
-          name: "Python",
+          name: "React.js",
           color: "blue-text-gradient",
         },
         {
-          name: "Jupyter Notebook",
+          name: "Node.js",
           color: "green-text-gradient",
         },
         {
-          name: "Matplot lib",
+          name: "Tailwind",
           color: "pink-text-gradient",
         },
+        {
+          name: "Chart.js",
+          color: "yellow-text-gradient",
+        },
+        {
+          name: "Mistral-LLM",
+          color: "orange-text-gradient",
+        }
       ],
-      image: jobit,
-      source_code_Link: "https://github.com/Varun-2538/Predictive_sports_analysis",
+      image: jobit, // Replace with actual image variable or path
+      source_code_link: "https://github.com/imilindmishra/Shadow"
     },
     {
       name: "Network Usage Tracker",
