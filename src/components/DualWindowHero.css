@@ -1,0 +1,292 @@
+/* Windows styling */
+.window-container {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(99, 99, 99, 0.2);
+    overflow: hidden;
+  }
+  
+  .window-container:hover {
+    box-shadow: 0 25px 60px -5px rgba(0, 0, 0, 0.8);
+    transform: translateY(-2px);
+  }
+  
+  /* Code Editor Styling */
+  .code-editor-container {
+    font-family: "JetBrains Mono", "Fira Code", "Menlo", "Monaco", monospace;
+  }
+  
+  .code-editor-header,
+  .terminal-header {
+    user-select: none;
+  }
+  
+  .code-editor-tabs,
+  .terminal-tabs {
+    user-select: none;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .code-editor-tabs::-webkit-scrollbar,
+  .terminal-tabs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+  
+  .code-editor-content-wrapper {
+    background-color: #1e1e1e;
+  }
+  
+  .code-editor-content {
+    line-height: 1.6;
+    tab-size: 2;
+    -moz-tab-size: 2;
+    letter-spacing: 0.3px;
+    background-color: #1e1e1e;
+    position: relative;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3e3e3e #1e1e1e;
+  }
+  
+  .code-editor-content::-webkit-scrollbar,
+  .terminal-logs::-webkit-scrollbar,
+  .terminal-content-scrollable::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .code-editor-content::-webkit-scrollbar-track,
+  .terminal-logs::-webkit-scrollbar-track,
+  .terminal-content-scrollable::-webkit-scrollbar-track {
+    background: #1e1e1e;
+  }
+  
+  .code-editor-content::-webkit-scrollbar-thumb,
+  .terminal-logs::-webkit-scrollbar-thumb,
+  .terminal-content-scrollable::-webkit-scrollbar-thumb {
+    background-color: #3e3e3e;
+    border-radius: 4px;
+  }
+  
+  .code-editor-content::-webkit-scrollbar-thumb:hover,
+  .terminal-logs::-webkit-scrollbar-thumb:hover,
+  .terminal-content-scrollable::-webkit-scrollbar-thumb:hover {
+    background-color: #4e4e4e;
+  }
+  
+  .code-editor-content pre {
+    margin: 0;
+    font-family: inherit;
+  }
+  
+  .line-numbers {
+    color: #858585;
+    font-size: 0.9em;
+    min-width: 2.5em;
+    text-right: right;
+    user-select: none;
+  }
+  
+  .line-number {
+    padding: 0 0.5em;
+    height: 1.6em;
+  }
+  
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: #fff;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  /* Syntax highlighting */
+  .keyword {
+    color: #569cd6;
+  }
+  
+  .string {
+    color: #ce9178;
+  }
+  
+  .comment {
+    color: #6a9955;
+    font-style: italic;
+  }
+  
+  .doccomment {
+    color: #6a9955;
+    font-style: italic;
+  }
+  
+  .function {
+    color: #dcdcaa;
+  }
+  
+  .variable {
+    color: #9cdcfe;
+  }
+  
+  .number {
+    color: #b5cea8;
+  }
+  
+  .operator {
+    color: #d4d4d4;
+  }
+  
+  .property {
+    color: #9cdcfe;
+  }
+  
+  .punctuation {
+    color: #d4d4d4;
+  }
+  
+  /* Trading Terminal Styling */
+  .trading-terminal-container {
+    font-family: "JetBrains Mono", "Fira Code", "Menlo", "Monaco", monospace;
+  }
+  
+  .terminal-logs {
+    line-height: 1.4;
+    overflow-y: auto;
+  }
+  
+  /* Status bar glow effects */
+  .code-editor-statusbar,
+  .terminal-statusbar {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .code-editor-statusbar::after,
+  .terminal-statusbar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shine 8s infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    20% {
+      left: 100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
+  /* Add subtle animation to the windows */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .terminal-content {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+  
+    .terminal-content > div {
+      grid-column: span 12;
+    }
+  }
+  
+  /* Side-by-side layout styles */
+  @media (max-width: 768px) {
+    .window-container {
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Fix window sizing and layout */
+  .window-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .window-container > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Fix code editor layout */
+  .code-editor-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .code-editor-content-wrapper {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .line-numbers {
+    overflow-y: hidden;
+  }
+  
+  /* Ensure line numbers stay aligned with code */
+  .line-numbers .line-number {
+    height: 1.6em;
+    line-height: 1.6;
+  }
+  
+  /* Fix trading terminal layout */
+  .trading-terminal-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .terminal-content {
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  /* Make trading terminal content scrollable */
+  .terminal-content-scrollable {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3e3e3e #1e1e1e;
+  }
+  
+  /* Ensure consistent heights */
+  @media (min-width: 768px) {
+    .window-container {
+      height: 100%;
+    }
+  }
+  
