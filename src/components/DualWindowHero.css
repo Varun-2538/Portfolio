@@ -31,6 +31,47 @@
     scrollbar-width: none; /* Firefox */
   }
   
+  .code-editor-tabs {
+    user-select: none;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+    height: 36px; /* Fixed height for tabs */
+  }
+  
+  .code-editor-tabs > div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* Add a nice gradient effect to the active tab */
+  .code-editor-tabs div:first-child {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .code-editor-tabs div:first-child::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, #007acc, #00bfff);
+  }
+  
+  /* Improve button styling */
+  .code-editor-tabs button {
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .code-editor-tabs button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
   .code-editor-tabs::-webkit-scrollbar,
   .terminal-tabs::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Edge */
@@ -288,5 +329,85 @@
     .window-container {
       height: 100%;
     }
+  }
+  
+  /* Aesthetic preview styling */
+  .aesthetic-preview {
+    font-family: "JetBrains Mono", "Fira Code", "Menlo", "Monaco", monospace;
+  }
+  
+  /* Introduction banner styling */
+  .intro-banner {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  /* Mobile view styling */
+  @media (max-width: 767px) {
+    .mobile-portfolio-view {
+      padding: 1rem;
+    }
+  }
+  
+  /* Enhanced preview styling */
+  .enhanced-preview {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+    padding: 1rem;
+  }
+  
+  .enhanced-preview h1,
+  .enhanced-preview h2,
+  .enhanced-preview h3 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  
+  /* Tech-savvy mobile styling */
+  .tech-grid-bg {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .tech-border {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .tech-glow {
+    box-shadow: 0 0 15px rgba(123, 97, 255, 0.3);
+  }
+  
+  /* Animated cursor for terminal effect */
+  .terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background-color: #4ade80;
+    animation: blink 1s step-end infinite;
+  }
+  
+  /* Add countdown timer styling */
+  @keyframes countdown {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: 100;
+    }
+  }
+  
+  .countdown-timer {
+    position: relative;
+  }
+  
+  .countdown-timer svg {
+    transform: rotate(-90deg);
+  }
+  
+  .countdown-timer circle {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    animation: countdown 10s linear forwards;
   }
   

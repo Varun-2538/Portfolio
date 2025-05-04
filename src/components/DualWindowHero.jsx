@@ -1,16 +1,34 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { styles } from "../styles"
 import { ComputersCanvas } from "./canvas"
 import CodeEditorWindow from "./CodeEditorWindow"
 import TradingTerminalWindow from "./TradingTerminalWindow"
+import MobilePortfolioView from "./MobilePortfolioView"
 
 const DualWindowHero = () => {
   // Window z-index state for focus management
   const [editorZIndex, setEditorZIndex] = useState(10)
   const [terminalZIndex, setTerminalZIndex] = useState(11) // Terminal on top initially
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Check if mobile on mount and when window resizes
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    // Initial check
+    checkMobile()
+
+    // Add resize listener
+    window.addEventListener("resize", checkMobile)
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
 
   // Focus handling
   const focusEditor = () => {
@@ -31,42 +49,49 @@ const DualWindowHero = () => {
           <div className="w-1 sm:h-80 h-40 violet-gradient" />
         </div>
 
-        {/* Windows Container */}
-        <div className="relative w-full h-[70vh] sm:h-[60vh] flex flex-col md:flex-row gap-6">
-          {/* Code Editor Window */}
-          <motion.div
-            className="window-container md:w-1/2 w-full h-full flex"
-            style={{
-              zIndex: editorZIndex,
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            onClick={focusEditor}
-            whileHover={{ scale: 1.01 }}
-          >
-            <div className="w-full h-full flex">
-              <CodeEditorWindow />
-            </div>
-          </motion.div>
+        {isMobile ? (
+          // Mobile view with constrained height
+          <div className="h-[70vh] overflow-hidden">
+            <MobilePortfolioView />
+          </div>
+        ) : (
+          // Desktop view with windows
+          <div className="relative w-full h-[70vh] sm:h-[60vh] flex flex-col md:flex-row gap-6">
+            {/* Code Editor Window */}
+            <motion.div
+              className="window-container md:w-1/2 w-full h-full flex"
+              style={{
+                zIndex: editorZIndex,
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              onClick={focusEditor}
+              whileHover={{ scale: 1.01 }}
+            >
+              <div className="w-full h-full flex">
+                <CodeEditorWindow />
+              </div>
+            </motion.div>
 
-          {/* Trading Terminal Window */}
-          <motion.div
-            className="window-container md:w-1/2 w-full h-full flex"
-            style={{
-              zIndex: terminalZIndex,
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            onClick={focusTerminal}
-            whileHover={{ scale: 1.01 }}
-          >
-            <div className="w-full h-full flex">
-              <TradingTerminalWindow />
-            </div>
-          </motion.div>
-        </div>
+            {/* Trading Terminal Window */}
+            <motion.div
+              className="window-container md:w-1/2 w-full h-full flex"
+              style={{
+                zIndex: terminalZIndex,
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              onClick={focusTerminal}
+              whileHover={{ scale: 1.01 }}
+            >
+              <div className="w-full h-full flex">
+                <TradingTerminalWindow />
+              </div>
+            </motion.div>
+          </div>
+        )}
       </div>
 
       <ComputersCanvas />
