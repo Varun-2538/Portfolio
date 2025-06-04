@@ -139,7 +139,7 @@ import {
     },
     {
       title: "Frontend Intern",
-      company_name: "Corelytics AI",
+      company_name: "Porfo",
       icon: tesla, // Replace with the actual icon variable or path
       iconBg: "#383E56",
       date: "September 2023 - December 2023",
