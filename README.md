@@ -1,14 +1,19 @@
 # Varun Singh — Portfolio
 
-A Next.js 14 (App Router) rebuild of my portfolio, styled in the spirit of
-[sauna.ai](https://www.sauna.ai) — dawn lakescape hero, editorial serif
-type, and a floating project collage.
+A Next.js 14 (App Router) portfolio styled in the spirit of
+[sauna.ai](https://www.sauna.ai) — forest/lakeside hero, a scroll-linked
+"scattered work" collage that converges as you scroll, a sticky-scroll
+surfaces section, and a dark "always on" panel.
+
+Design tokens (palette + type pairing) are adapted from Sauna's public
+[brand page](https://www.sauna.ai/brand); all copy, imagery, and layout code
+here are original.
 
 ## Stack
 
 - Next.js 14 (App Router) + TypeScript
 - Plain CSS (no framework) — see `app/globals.css`
-- Zero external UI dependencies — accordions and reveals are hand-rolled
+- Zero external UI dependencies — scroll effects and reveals are hand-rolled
 
 ## Getting started
 
@@ -27,8 +32,8 @@ All copy (projects, stack surfaces, timeline, FAQ, links) lives in one file:
 lib/content.ts
 ```
 
-Update `links.email`, `links.github`, `links.linkedin`, and `links.x` with
-your real profile URLs before deploying.
+Update `links.linkedin` and `links.x` with your real profile URLs — GitHub
+and email are already set.
 
 ## Build
 

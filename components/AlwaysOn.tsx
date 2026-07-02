@@ -1,19 +1,14 @@
 import Reveal from "./Reveal";
+import { alwaysOn } from "@/lib/content";
 
 export default function AlwaysOn() {
   return (
-    <section className="section" id="alwayson">
+    <section className="section section-dark" id="alwayson">
       <Reveal className="alwayson">
         <div>
-          <div className="kicker">Always on</div>
-          <h2>
-            The work doesn&apos;t stop, <em>even when I do.</em>
-          </h2>
-          <p className="section-sub">
-            My systems run in the cloud around the clock — scanning mempools,
-            simulating trades, filing tickets, delivering briefings. I
-            don&apos;t have to be online for the work to move forward.
-          </p>
+          <div className="kicker">{alwaysOn.kicker}</div>
+          <h2>{alwaysOn.heading}</h2>
+          <p className="section-sub">{alwaysOn.sub}</p>
         </div>
         <div className="terminal">
           <div className="term-bar">

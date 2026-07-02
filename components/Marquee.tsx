@@ -2,8 +2,10 @@ export default function Marquee() {
   const text = (
     <>
       <span>
-        Your idea lives everywhere — <b>scattered, disconnected</b> — until
-        someone ships it.
+        Ideas start scattered across repos, chains, and terminals.
+      </span>
+      <span>
+        <b>Shipped code doesn&apos;t stay that way.</b>
       </span>
       <span>
         Rust · React · Solidity · FastAPI · <b>and everything in between.</b>

@@ -1,60 +1,72 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { surfaces } from "@/lib/content";
+import { useEffect, useRef, useState } from "react";
+import { surfaces, stackSection } from "@/lib/content";
 import Reveal from "./Reveal";
 
 export default function Stack() {
-  const [openIndex, setOpenIndex] = useState(0);
-  const bodyRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [active, setActive] = useState(0);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const items = itemRefs.current.filter(Boolean) as HTMLDivElement[];
+    if (!items.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number((entry.target as HTMLElement).dataset.idx);
+            setActive(idx);
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+    );
+
+    items.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  const current = surfaces[active];
 
   return (
-    <section className="section" id="stack" style={{ background: "var(--ink-2)" }}>
+    <section className="section" id="stack" style={{ background: "var(--desk)" }}>
       <Reveal className="section-head">
-        <div className="kicker">Surfaces</div>
-        <h2>
-          Wherever the stack is, <em>I am too.</em>
-        </h2>
+        <div className="kicker">{stackSection.kicker}</div>
+        <h2>{stackSection.heading}</h2>
       </Reveal>
-      <Reveal>
-        <div className="surfaces">
-          {surfaces.map((s, i) => {
-            const isOpen = openIndex === i;
-            const innerEl = bodyRefs.current[i];
-            const maxHeight = isOpen
-              ? `${innerEl?.scrollHeight ?? 200}px`
-              : "0px";
-            return (
-              <div className={`surface${isOpen ? " open" : ""}`} key={s.name}>
-                <button
-                  className="surface-head"
-                  aria-expanded={isOpen}
-                  onClick={() => setOpenIndex(isOpen ? -1 : i)}
-                >
-                  <span className="icon">{s.icon}</span>
-                  <span className="name">{s.name}</span>
-                  <span className="plus">+</span>
-                </button>
-                <div className="surface-body" style={{ maxHeight }}>
-                  <div
-                    className="surface-body-inner"
-                    ref={(el) => {
-                      bodyRefs.current[i] = el;
-                    }}
-                  >
-                    {s.desc}
-                    <div className="stack">
-                      {s.stack.map((item) => (
-                        <span key={item}>{item}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+
+      <div className="surfaces-wrap">
+        <div className="surfaces-sticky">
+          <div className="surfaces-icon">{current.icon}</div>
+          <h3>{current.name}</h3>
+          <p>{current.desc}</p>
+          <div className="stack">
+            {current.stack.map((s) => (
+              <span key={s}>{s}</span>
+            ))}
+          </div>
         </div>
-      </Reveal>
+
+        <div className="surfaces-list">
+          {surfaces.map((s, i) => (
+            <div
+              key={s.name}
+              data-idx={i}
+              ref={(el) => {
+                itemRefs.current[i] = el;
+              }}
+              className={`surface-item${active === i ? " active" : ""}`}
+            >
+              <div className="si-name">
+                {s.icon} {s.name}
+              </div>
+              <div className="si-desc">{s.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

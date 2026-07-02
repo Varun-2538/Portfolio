@@ -1,5 +1,5 @@
 import Reveal from "./Reveal";
-import { links } from "@/lib/content";
+import { links, finalCta } from "@/lib/content";
 
 export default function FinalCTA() {
   return (
@@ -21,30 +21,14 @@ export default function FinalCTA() {
       />
       <Reveal className="" as="div">
         <div style={{ position: "relative", zIndex: 2 }}>
-          <div className="kicker">Let&apos;s build</div>
-          <h2>
-            C&apos;mon in — <em>the code&apos;s hot.</em>
-          </h2>
-          <p className="section-sub">
-            Have a product to ship, a system to scale, or a wild idea worth a
-            hackathon weekend? I&apos;m in.
-          </p>
+          <div className="kicker">{finalCta.kicker}</div>
+          <h2>{finalCta.heading}</h2>
+          <p className="section-sub">{finalCta.sub}</p>
           <a className="btn btn-solid" href={`mailto:${links.email}`}>
             Get in touch
           </a>
         </div>
       </Reveal>
-      <svg
-        className="ridge"
-        viewBox="0 0 1440 140"
-        preserveAspectRatio="none"
-        style={{ height: 140 }}
-      >
-        <path
-          d="M0,140 L0,80 Q260,120 520,70 T1000,90 T1440,50 L1440,140 Z"
-          fill="#0b0d12"
-        />
-      </svg>
     </section>
   );
 }

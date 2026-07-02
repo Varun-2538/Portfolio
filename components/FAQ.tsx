@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 export default function FAQ() {
   return (
-    <section className="section" id="faq" style={{ background: "var(--ink-2)" }}>
+    <section className="section" id="faq" style={{ background: "var(--canvas)" }}>
       <Reveal className="section-head">
         <div className="kicker">FAQ</div>
         <h2>

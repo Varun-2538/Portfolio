@@ -1,18 +1,13 @@
-import { projects } from "@/lib/content";
+import { projects, missionControl } from "@/lib/content";
 import Reveal from "./Reveal";
 
 export default function Projects() {
   return (
-    <section className="section" id="work" style={{ background: "var(--ink-2)" }}>
+    <section className="section" id="work" style={{ background: "var(--canvas)" }}>
       <Reveal className="section-head">
-        <div className="kicker">Mission control</div>
-        <h2>
-          Welcome to <em>mission control.</em>
-        </h2>
-        <p className="section-sub">
-          Everything in one place. Every system at your fingertips. Every
-          problem, handled.
-        </p>
+        <div className="kicker">{missionControl.kicker}</div>
+        <h2>{missionControl.heading}</h2>
+        <p className="section-sub">{missionControl.sub}</p>
       </Reveal>
       <div className="projects">
         {projects.map((p) => (

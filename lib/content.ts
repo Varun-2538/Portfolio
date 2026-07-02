@@ -1,3 +1,38 @@
+export const hero = {
+  eyebrow: "arb.service — running · SDE @ HyperVerge",
+  headline: "Introducing Varun, the engineer who never idles.",
+  sub: "I build systems that learn, remember, and act — MEV trading bots, fintech rails, and AI agents that keep working while everyone else sleeps.",
+};
+
+export const scatter = {
+  kicker: "The scatter",
+  heading: "Hackathons, bots, rails, agents — it all connects.",
+  centerLine: "One person, wiring it all together.",
+};
+
+export const missionControl = {
+  kicker: "Command line",
+  heading: "Every system, one operator.",
+  sub: "Six shipped builds, one dashboard. Pick a project below.",
+};
+
+export const alwaysOn = {
+  kicker: "Always on",
+  heading: "I sleep. The bot keeps trading.",
+  sub: "A Rust service on a DigitalOcean droplet scans liquidity pools, simulates trades in REVM, and fires Flashbots bundles — around the clock, in a tmux session that doesn't care whether I'm awake.",
+};
+
+export const stackSection = {
+  kicker: "Surfaces",
+  heading: "One engineer, every layer.",
+};
+
+export const marquee = [
+  "Ideas start scattered across repos, chains, and terminals.",
+  "Shipped code doesn't stay that way.",
+  "Rust · React · Solidity · FastAPI · and everything in between.",
+];
+
 export const projects = [
   {
     num: "01",
@@ -124,9 +159,16 @@ export const faqs = [
   },
 ];
 
+export const finalCta = {
+  kicker: "Let's build",
+  heading: "C'mon in — the code's hot.",
+  sub: "Have a product to ship, a system to scale, or a wild idea worth a hackathon weekend? I'm in.",
+};
+
 export const links = {
-  email: "hello@varun5.dev",
-  github: "https://github.com/",
+  email: "varunsingh2538@gmail.com",
+  github: "https://github.com/Varun-2538",
   linkedin: "https://www.linkedin.com/",
   x: "https://x.com/",
 };
+
