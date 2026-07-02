@@ -6,12 +6,12 @@ import { scatter } from "@/lib/content";
 
 const chips: {
   style: React.CSSProperties;
+  variant?: "gold" | "mono";
   content: JSX.Element;
-  className?: string;
 }[] = [
   {
     style: { left: "2%", top: "6%" },
-    className: "chip gold",
+    variant: "gold",
     content: (
       <>
         <div className="tag">🏆 1st place</div>
@@ -24,7 +24,7 @@ const chips: {
   },
   {
     style: { right: "4%", top: "2%" },
-    className: "chip mono",
+    variant: "mono",
     content: (
       <>
         <span className="k">fn</span> find_arb(pool: &amp;Pool) {"{"}
@@ -41,7 +41,6 @@ const chips: {
   },
   {
     style: { left: "8%", bottom: "10%" },
-    className: "chip",
     content: (
       <>
         <div className="tag">ETHIndia</div>
@@ -54,7 +53,6 @@ const chips: {
   },
   {
     style: { right: "2%", bottom: "16%" },
-    className: "chip",
     content: (
       <>
         <div className="tag">Production</div>
@@ -68,7 +66,6 @@ const chips: {
   },
   {
     style: { left: "26%", top: "0%" },
-    className: "chip",
     content: (
       <>
         <div className="tag">Agentic AI</div>
@@ -81,7 +78,7 @@ const chips: {
   },
   {
     style: { right: "26%", bottom: "0%" },
-    className: "chip mono",
+    variant: "mono",
     content: (
       <>
         <span className="d">$</span> systemctl status arb
@@ -129,9 +126,6 @@ export default function Collage() {
     const update = () => {
       ticking = false;
       const r = collage.getBoundingClientRect();
-      // 0 = section just entering bottom of viewport (chips scattered),
-      // 1 = section has scrolled to roughly the top third of viewport
-      // (chips converged toward the center orb).
       const start = window.innerHeight * 0.95;
       const end = window.innerHeight * 0.25;
       const raw = (start - r.top) / (start - end);
@@ -171,13 +165,15 @@ export default function Collage() {
         <div className="kicker">{scatter.kicker}</div>
         <h2>{scatter.heading}</h2>
       </Reveal>
-      <div className="collage" ref={collageRef}>
+
+      {/* Desktop: floating chips that converge toward the orb on scroll */}
+      <div className="collage-desktop" ref={collageRef}>
         {chips.map((c, i) => (
           <div
             key={i}
-            className={c.className}
+            className={`chip${c.variant ? " " + c.variant : ""}`}
             style={c.style}
-            >
+          >
             {c.content}
           </div>
         ))}
@@ -185,6 +181,25 @@ export default function Collage() {
           <div className="orb">V</div>
           <p>{scatter.centerLine}</p>
         </div>
+      </div>
+
+      {/* Phone: horizontal swipe carousel, native to touch scrolling */}
+      <div className="collage-mobile">
+        <div className="cm-track">
+          <div className="cm-card cm-orb">
+            <div className="orb">V</div>
+            <p>{scatter.centerLine}</p>
+          </div>
+          {chips.map((c, i) => (
+            <div
+              key={i}
+              className={`cm-card${c.variant ? " " + c.variant : ""}`}
+            >
+              {c.content}
+            </div>
+          ))}
+        </div>
+        <div className="cm-hint">Swipe to see more →</div>
       </div>
     </section>
   );

@@ -20,13 +20,10 @@ export default function Reveal({
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
-            setInView(true);
-            io.unobserve(e.target);
-          }
+          setInView(e.isIntersecting);
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.12, rootMargin: "-4% 0px -4% 0px" }
     );
     io.observe(el);
     return () => io.disconnect();
