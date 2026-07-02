@@ -1,6 +1,14 @@
 import { hero, links } from "@/lib/content";
 
-function Bird({ style, size = 24 }: { style: React.CSSProperties; size?: number }) {
+function Bird({
+  style,
+  size = 24,
+  flapDuration = "0.7s",
+}: {
+  style: React.CSSProperties;
+  size?: number;
+  flapDuration?: string;
+}) {
   return (
     <svg
       viewBox="0 0 24 12"
@@ -14,16 +22,23 @@ function Bird({ style, size = 24 }: { style: React.CSSProperties; size?: number 
         style={{ stroke: "rgba(var(--ink-rgb),.45)" }}
         strokeWidth="1.4"
         strokeLinecap="round"
-      />
+      >
+        <animate
+          attributeName="d"
+          values="M1,8 Q6,1 12,8 Q18,1 23,8;M1,8 Q6,9 12,8 Q18,9 23,8;M1,8 Q6,1 12,8 Q18,1 23,8"
+          dur={flapDuration}
+          repeatCount="indefinite"
+        />
+      </path>
     </svg>
   );
 }
 
 const birds = [
-  { top: "18%", size: 24, duration: "38s", delay: "0s" },
-  { top: "28%", size: 18, duration: "46s", delay: "-14s" },
-  { top: "12%", size: 15, duration: "52s", delay: "-28s" },
-  { top: "34%", size: 20, duration: "42s", delay: "-6s" },
+  { top: "18%", size: 24, duration: "38s", delay: "0s", flap: "0.65s" },
+  { top: "28%", size: 18, duration: "46s", delay: "-14s", flap: "0.8s" },
+  { top: "12%", size: 15, duration: "52s", delay: "-28s", flap: "0.55s" },
+  { top: "34%", size: 20, duration: "42s", delay: "-6s", flap: "0.72s" },
 ];
 
 export default function Hero() {
@@ -34,6 +49,7 @@ export default function Hero() {
           <Bird
             key={i}
             size={b.size}
+            flapDuration={b.flap}
             style={{
               top: b.top,
               animationDuration: b.duration,

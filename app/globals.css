@@ -16,6 +16,7 @@
   --line-dark:rgba(255,255,255,.12);
   --accent-ink:var(--forest);
   --fixed-light:#fafaf9;
+  --fixed-dark:#14171b;
   --sky-top:#aebfd4;
   --sky-mid:#d9d3c9;
   --sky-horizon:#eec9a0;
@@ -181,7 +182,7 @@ h2 em{font-style:normal;color:var(--accent-ink)}
 .chip .tag{font-family:var(--mono-ui);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);font-weight:700;margin-bottom:6px}
 .chip .body{font-size:14.5px;color:var(--ink);line-height:1.45;max-width:250px}
 .chip .meta{font-size:12.5px;color:rgba(var(--ink-rgb),.55);margin-top:8px}
-.chip.mono{font-family:var(--code);font-size:12.5px;line-height:1.7;background:var(--ink);color:#d7ecd9;border-color:transparent}
+.chip.mono{font-family:var(--code);font-size:12.5px;line-height:1.7;background:var(--fixed-dark);color:#d7ecd9;border-color:transparent}
 .chip.mono .k{color:var(--lichen)}
 .chip.gold{border-color:rgba(95,214,122,.4);background:linear-gradient(160deg,rgba(147,239,164,.16),var(--paper))}
 .collage-center{

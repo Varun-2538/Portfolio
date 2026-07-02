@@ -24,6 +24,9 @@ export default function Nav() {
         <a href="#stack">Stack</a>
         <a href="#journey">Journey</a>
         <a href="#faq">FAQ</a>
+        <a href={links.resume} target="_blank" rel="noopener noreferrer">
+          Resume
+        </a>
       </div>
       <div className="nav-right">
         <ThemeToggle />

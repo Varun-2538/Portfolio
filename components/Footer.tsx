@@ -5,6 +5,9 @@ export default function Footer() {
     <footer>
       <span>© {new Date().getFullYear()} Varun Singh · varun5.vercel.app</span>
       <div className="foot-links">
+        <a href={links.resume} target="_blank" rel="noopener noreferrer">
+          Resume
+        </a>
         <a href={links.github} target="_blank" rel="noopener noreferrer">
           GitHub
         </a>
