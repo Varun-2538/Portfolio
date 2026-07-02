@@ -56,7 +56,7 @@ export default function Hero() {
           <a className="btn btn-solid" href="#work">
             See the work
           </a>
-          <a className="btn btn-ghost" href="mailto:hello@varun5.dev">
+          <a className="btn btn-ghost" href="mailto:varunsingh2538@gmail.com">
             Say hello →
           </a>
         </div>
