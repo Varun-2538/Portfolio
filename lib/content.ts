@@ -1,7 +1,7 @@
 export const hero = {
-  eyebrow: "6 shipped builds · SDE @ HyperVerge",
-  headline: "Introducing Varun, the engineer who plans six moves ahead.",
-  sub: "Before a line of code gets written, I map the architecture, the data flow, and the failure points. That's how one person ships fintech rails, trading systems, and AI agents that actually hold up in production.",
+  eyebrow: "arb.service — running · SDE @ HyperVerge",
+  headline: "Introducing Varun, the engineer who never idles.",
+  sub: "I build systems that learn, remember, and act — MEV trading bots, fintech rails, and AI agents that keep working while everyone else sleeps.",
 };
 
 export const scatter = {

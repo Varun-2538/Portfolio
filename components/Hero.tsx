@@ -76,16 +76,9 @@ export default function Hero() {
           {hero.eyebrow}
         </div>
         <h1>
-          Introducing Varun, the engineer who <em>plans six moves ahead.</em>
+          Introducing Varun, the engineer who <em>never idles.</em>
         </h1>
         <p className="hero-sub">{hero.sub}</p>
-        <div className="hero-process">
-          <span>Understand the problem</span>
-          <i>→</i>
-          <span>Design the architecture</span>
-          <i>→</i>
-          <span>Ship it end to end</span>
-        </div>
         <div className="hero-ctas">
           <a className="btn btn-solid" href="#work">
             See the work
