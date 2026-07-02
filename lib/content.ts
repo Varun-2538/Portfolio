@@ -102,7 +102,7 @@ export const surfaces = [
     icon: "⛓️",
     name: "On-chain",
     desc: "Smart contracts, MEV strategy, DeFi integrations, and tokenization builds across EVM chains and TON.",
-    stack: ["Solidity", "Flashbots", "FunC", "ZK proofs"],
+    stack: ["Solidity", "Flashbots", "FunC", "ZK proofs", "Biconomy", "ERC-4337"],
   },
   {
     icon: "🤖",
@@ -122,6 +122,11 @@ export const timeline = [
     when: "Earlier",
     title: "Catalystix · CorelytixAI · SRM Technologies",
     desc: "Built AI agents, A/B testing frameworks, and AWS-deployed APIs across three internships while shipping side projects at night.",
+  },
+  {
+    when: "2024",
+    title: "Fullstack Intern · Biconomy",
+    desc: "Implemented Biconomy Smart Account V2 with session keys and permissions, and built a cross-chain Gitcoin Grants donation flow using ERC-4337 and a transaction bundler for gasless, multi-chain contributions.",
   },
   {
     when: "Campus",
