@@ -10,7 +10,7 @@ const chips: {
   className?: string;
 }[] = [
   {
-    style: { left: "2%", top: "6%" },
+    style: { left: "1%", top: "2%" },
     className: "chip gold",
     content: (
       <>
@@ -40,7 +40,7 @@ const chips: {
     ),
   },
   {
-    style: { left: "8%", bottom: "10%" },
+    style: { left: "1%", bottom: "4%" },
     className: "chip",
     content: (
       <>
@@ -80,7 +80,7 @@ const chips: {
     ),
   },
   {
-    style: { left: "4%", top: "33%" },
+    style: { left: "5%", top: "36%" },
     className: "chip gold",
     content: (
       <>
@@ -172,11 +172,11 @@ export default function Collage() {
       // suddenly overlap each other, they just gather inward together.
       // Capped well short of 1 so they end up loosely gathered around the
       // orb, not stacked on top of it.
-      const PULL = 0.22;
+      const PULL = 0.35;
       nodes.forEach(({ el, offX, offY }) => {
         const tx = -offX * eased * PULL;
         const ty = -offY * eased * PULL;
-        el.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${(1 - eased * 0.06).toFixed(3)})`;
+        el.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${(1 - eased * 0.08).toFixed(3)})`;
         el.style.opacity = `${(1 - eased * 0.28).toFixed(2)}`;
       });
     };
