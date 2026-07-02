@@ -80,7 +80,7 @@ const chips: {
     ),
   },
   {
-    style: { right: "12%", top: "24%" },
+    style: { left: "4%", top: "33%" },
     className: "chip gold",
     content: (
       <>
@@ -166,11 +166,18 @@ export default function Collage() {
         ? 2 * raw * raw
         : 1 - Math.pow(-2 * raw + 2, 2) / 2;
 
+      // Uniform scale-toward-center: every chip's offset is reduced by the
+      // same ratio, so their relative spacing just shrinks proportionally
+      // instead of distorting — chips that don't overlap at rest can't
+      // suddenly overlap each other, they just gather inward together.
+      // Capped well short of 1 so they end up loosely gathered around the
+      // orb, not stacked on top of it.
+      const PULL = 0.22;
       nodes.forEach(({ el, offX, offY }) => {
-        const tx = -offX * eased * 0.92;
-        const ty = -offY * eased * 0.92;
-        el.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${(1 - eased * 0.12).toFixed(3)})`;
-        el.style.opacity = `${(1 - eased * 0.6).toFixed(2)}`;
+        const tx = -offX * eased * PULL;
+        const ty = -offY * eased * PULL;
+        el.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${(1 - eased * 0.06).toFixed(3)})`;
+        el.style.opacity = `${(1 - eased * 0.28).toFixed(2)}`;
       });
     };
 
