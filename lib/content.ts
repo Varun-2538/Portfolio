@@ -13,7 +13,7 @@ export const scatter = {
 export const missionControl = {
   kicker: "Command line",
   heading: "Every system, one operator.",
-  sub: "Six shipped builds, one dashboard. Pick a project below.",
+  sub: "Seven shipped builds, one dashboard. Pick a project below.",
 };
 
 export const alwaysOn = {
@@ -46,8 +46,8 @@ export const projects = [
     num: "02",
     badge: "🏆 Winner",
     title: "ReportEase",
-    desc: "OCR-driven FIR analysis for law enforcement at 98% accuracy. Took 1st place at Rajasthan Police Hackathon 1.0.",
-    stack: ["Python", "OCR", "NLP"],
+    desc: "AI-based FIR analysis tool using Mistral-AI and Tesseract-OCR to parse incident reports, plus a crime-analytics dashboard over CCTNS data with 96% correct AI suggestions from a fine-tuned model. 1st in problem statement, 2nd runner-up among 1,665 teams at Rajasthan Police Hackathon 1.0.",
+    stack: ["Python", "Flask", "Mistral-LLM", "Tesseract-OCR", "Chart.js"],
   },
   {
     num: "03",
@@ -60,8 +60,8 @@ export const projects = [
     num: "04",
     badge: "Agentic",
     title: "Enterprise Intern-Bot",
-    desc: "Production-grade AI agent wired into Slack and GitLab — HMAC webhook auth, JWT-gated human approval, and persistent markdown memory.",
-    stack: ["FastAPI", "PostgreSQL", "Claude API"],
+    desc: "Autonomous agentic pipeline at HyperVerge: FastAPI + Slack Events/Actions API + Anthropic API with an MCP server and python-gitlab, automating the full flow from Notion/Google Docs PRD ingestion to code generation and GitLab Merge Request creation, plus in-chat codebase querying and automated comment resolution.",
+    stack: ["FastAPI", "Slack API", "Anthropic API", "python-gitlab"],
   },
   {
     num: "05",
@@ -74,8 +74,15 @@ export const projects = [
     num: "06",
     badge: "Trading",
     title: "TradeSmart.AI",
-    desc: "AI trading platform with MCP tools, time-series storage, and containerized deployment for strategy research and execution.",
-    stack: ["MCP", "TimescaleDB", "Redis", "Docker"],
+    desc: "AI-powered trading platform with 3 specialized agents generating strategies in under 60 seconds. 6 MCP tools orchestrated via Docker, processing 240 candlesticks for real-time market analysis.",
+    stack: ["Python", "FastAPI", "Docker", "Cerebras AI", "Meta Llama", "TimescaleDB", "Redis"],
+  },
+  {
+    num: "07",
+    badge: "No-code",
+    title: "KOAN",
+    desc: "No-code platform for on-the-go DeFi infra creation using a React Flow-based visual builder, backed by a TypeScript execution engine for component-level testing and workflow integration.",
+    stack: ["React", "Solidity", "Firebase", "Tailwind", "IPFS"],
   },
 ];
 
@@ -90,7 +97,7 @@ export const surfaces = [
     icon: "🛠️",
     name: "Backend",
     desc: "APIs built for production from day one — auth, webhooks, observability, and distributed tracing included.",
-    stack: ["FastAPI", "Node.js", "PostgreSQL", "Redis", "OpenTelemetry"],
+    stack: ["FastAPI", "Node.js", "Express.js", "PostgreSQL", "Firebase", "Redis", "OpenTelemetry"],
   },
   {
     icon: "⚡",
@@ -108,7 +115,7 @@ export const surfaces = [
     icon: "🤖",
     name: "AI agents",
     desc: "Agentic systems with real guardrails — persistent memory, human-in-the-loop approvals, and tool use that ships work, not demos.",
-    stack: ["Claude API", "MCP", "Slack Bolt", "LLM pipelines"],
+    stack: ["Anthropic API", "MCP", "Slack API", "python-gitlab"],
   },
 ];
 
@@ -116,12 +123,12 @@ export const timeline = [
   {
     when: "Now",
     title: "SDE Intern · HyperVerge",
-    desc: "Data engineering and distributed tracing — KYC pipeline observability with AWS X-Ray and OpenTelemetry across services.",
+    desc: "Architected an autonomous agentic pipeline (FastAPI + Slack Events/Actions API + Anthropic API with an MCP server and python-gitlab) that turns Notion/Google Docs PRDs into generated code and GitLab merge requests. Also shipped OCR-based forgery detection and live face-match quality checks into production verification APIs.",
   },
   {
-    when: "Earlier",
-    title: "Catalystix · CorelytixAI · SRM Technologies",
-    desc: "Built AI agents, A/B testing frameworks, and AWS-deployed APIs across three internships while shipping side projects at night.",
+    when: "2025",
+    title: "Data Engineering Intern · SRM Technologies",
+    desc: "Designed a secure PII tokenization system using hashing and encryption, and built a dual-storage ETL pipeline fragmenting sensitive data across Firebase and IPFS — 100% data integrity with UUID-based reconstruction for authorized access.",
   },
   {
     when: "2024",
@@ -129,14 +136,19 @@ export const timeline = [
     desc: "Implemented Biconomy Smart Account V2 with session keys and permissions, and built a cross-chain Gitcoin Grants donation flow using ERC-4337 and a transaction bundler for gasless, multi-chain contributions.",
   },
   {
+    when: "Earlier",
+    title: "Catalystix · CorelytixAI",
+    desc: "Built AI agents, A/B testing frameworks, and AWS-deployed APIs across two internships while shipping side projects at night.",
+  },
+  {
     when: "Campus",
     title: "Crypto Domain Lead · Blockchain Club, SRM IST",
-    desc: "CS undergrad at SRM Institute of Science and Technology. Led the crypto domain, ran workshops, and dragged teams to hackathon podiums.",
+    desc: "Used Dune Analytics to scrape and analyze large-scale crypto transactions and token flow patterns, and represented the club at industry events including ETH India and Solana HackerHouse.",
   },
   {
     when: "Origin",
     title: "First hackathon win",
-    desc: "ReportEase took 1st at Rajasthan Police Hackathon — and the ship-fast habit never left.",
+    desc: "ReportEase placed 1st in its problem statement and 2nd runner-up among 1,665 teams at Rajasthan Police Hackathon 1.0 — the ship-fast habit never left.",
   },
 ];
 

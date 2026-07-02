@@ -14,10 +14,10 @@ const chips: {
     className: "chip gold",
     content: (
       <>
-        <div className="tag">🏆 1st place</div>
+        <div className="tag">🏆 1st in problem statement</div>
         <div className="body">
-          Rajasthan Police Hackathon 1.0 — ReportEase, OCR-based FIR analysis
-          at 98% accuracy.
+          Rajasthan Police Hackathon 1.0 — ReportEase, 2nd runner-up among
+          1,665 teams.
         </div>
       </>
     ),
@@ -44,10 +44,10 @@ const chips: {
     className: "chip",
     content: (
       <>
-        <div className="tag">ETHIndia</div>
+        <div className="tag">ETH India '24</div>
         <div className="body">
-          Track winner — plus Layer 2.0, ETHGlobal Delhi &amp; New Delhi
-          builds.
+          Okto Track winner ($2,500) — plus Shardeum Track winner at Layer
+          2.0 Hackathon.
         </div>
       </>
     ),
@@ -75,6 +75,18 @@ const chips: {
         <div className="body">
           Enterprise intern-bot: Slack + GitLab agent with persistent
           markdown memory.
+        </div>
+      </>
+    ),
+  },
+  {
+    style: { right: "12%", top: "24%" },
+    className: "chip gold",
+    content: (
+      <>
+        <div className="tag">🏆 1st position</div>
+        <div className="body">
+          Barclays Project Expo — 1st among 400 teams.
         </div>
       </>
     ),
