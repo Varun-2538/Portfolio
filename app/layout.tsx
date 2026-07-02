@@ -38,7 +38,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&family=Inter:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..800&family=Inter:wght@400..700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,20..72,400..600;1,20..72,400..600&display=swap"
           rel="stylesheet"
         />
         <script

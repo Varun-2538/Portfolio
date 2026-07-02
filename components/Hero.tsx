@@ -149,11 +149,14 @@ export default function Hero() {
         <div className="smoke" />
         <div className="smoke" />
       </div>
+      <div className="hero-grain" aria-hidden="true" />
+      <div className="hero-vignette" aria-hidden="true" />
 
       <div className="hero-inner">
         <div className="hero-eyebrow">
           <span className="pulse" />
           {hero.eyebrow}
+          <span className="eyebrow-caret" />
         </div>
         <h1>
           Introducing Varun, the engineer who <em>never idles.</em>
