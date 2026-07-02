@@ -106,18 +106,28 @@ const chips: {
   },
 ];
 
+// Convergence only plays out in the back half of the pinned scroll range —
+// chips stay put while the section is pinned/fully in view, and finish
+// collapsing right as the pin releases and the next section takes over.
+const COLLAPSE_START = 0.5;
+
 export default function Collage() {
+  const trackRef = useRef<HTMLDivElement | null>(null);
   const collageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    const track = trackRef.current;
     const collage = collageRef.current;
-    if (!collage) return;
+    if (!track || !collage) return;
     const motionOK = !window.matchMedia("(prefers-reduced-motion: reduce)")
       .matches;
     const wideEnough = window.matchMedia("(min-width: 821px)").matches;
     if (!motionOK || !wideEnough) return;
 
     let nodes: { el: HTMLElement; offX: number; offY: number }[] = [];
+    let target = 0;
+    let smooth = 0;
+    let rafId = 0;
 
     const measure = () => {
       const cRect = collage.getBoundingClientRect();
@@ -136,66 +146,88 @@ export default function Collage() {
       );
     };
 
-    let ticking = false;
+    // Raw scroll progress across the pin: 0 while the track's top hasn't
+    // reached the viewport top yet, 1 once its bottom reaches the viewport
+    // bottom (the exact moment the pin releases).
+    const computeTarget = () => {
+      const rect = track.getBoundingClientRect();
+      const scrollable = rect.height - window.innerHeight;
+      target = scrollable > 0
+        ? Math.min(1, Math.max(0, -rect.top / scrollable))
+        : 0;
+    };
 
-    const update = () => {
-      ticking = false;
-      const r = collage.getBoundingClientRect();
-      // 0 = section just entering bottom of viewport (chips scattered),
-      // 1 = section has scrolled to roughly the top third of viewport
-      // (chips converged toward the center orb).
-      const start = window.innerHeight * 0.95;
-      const end = window.innerHeight * 0.25;
-      const raw = (start - r.top) / (start - end);
-      const progress = Math.min(1, Math.max(0, raw));
-      const eased = progress < 0.5
-        ? 2 * progress * progress
-        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+    const apply = (p: number) => {
+      const raw = Math.min(
+        1,
+        Math.max(0, (p - COLLAPSE_START) / (1 - COLLAPSE_START))
+      );
+      const eased = raw < 0.5
+        ? 2 * raw * raw
+        : 1 - Math.pow(-2 * raw + 2, 2) / 2;
 
       nodes.forEach(({ el, offX, offY }) => {
-        const tx = -offX * eased * 0.9;
-        const ty = -offY * eased * 0.9;
-        el.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${(1 - eased * 0.1).toFixed(3)})`;
-        el.style.opacity = `${(1 - eased * 0.55).toFixed(2)}`;
+        const tx = -offX * eased * 0.92;
+        const ty = -offY * eased * 0.92;
+        el.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${(1 - eased * 0.12).toFixed(3)})`;
+        el.style.opacity = `${(1 - eased * 0.6).toFixed(2)}`;
       });
     };
 
-    const onScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(update);
+    // Lag the applied value behind the scroll-derived target, like GSAP's
+    // scrub — smooths out fast/jerky scroll input into a fluid motion.
+    const tick = () => {
+      smooth += (target - smooth) * 0.12;
+      apply(smooth);
+      if (Math.abs(target - smooth) > 0.0005) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        smooth = target;
+        apply(smooth);
+        rafId = 0;
       }
     };
 
+    const onScroll = () => {
+      computeTarget();
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    };
+
+    const onResize = () => {
+      measure();
+      computeTarget();
+      apply(smooth);
+    };
+
     measure();
-    update();
+    computeTarget();
+    apply(target);
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", measure);
+    window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", measure);
+      window.removeEventListener("resize", onResize);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
 
   return (
-    <section className="section" id="scatter">
-      <Reveal className="section-head">
-        <div className="kicker">{scatter.kicker}</div>
-        <h2>{scatter.heading}</h2>
-      </Reveal>
-      <div className="collage" ref={collageRef}>
-        {chips.map((c, i) => (
-          <div
-            key={i}
-            className={c.className}
-            style={c.style}
-            >
-            {c.content}
+    <section className="scatter-track" id="scatter" ref={trackRef}>
+      <div className="scatter-pin">
+        <Reveal className="section-head">
+          <div className="kicker">{scatter.kicker}</div>
+          <h2>{scatter.heading}</h2>
+        </Reveal>
+        <div className="collage" ref={collageRef}>
+          {chips.map((c, i) => (
+            <div key={i} className={c.className} style={c.style}>
+              {c.content}
+            </div>
+          ))}
+          <div className="collage-center">
+            <div className="orb">V</div>
+            <p>{scatter.centerLine}</p>
           </div>
-        ))}
-        <div className="collage-center">
-          <div className="orb">V</div>
-          <p>{scatter.centerLine}</p>
         </div>
       </div>
     </section>
