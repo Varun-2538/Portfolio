@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Varun Singh — Where systems get built",
+  title: "varun.singh",
   description:
     "Engineer who builds trading systems, fintech rails, and AI agents that work while everyone sleeps.",
-  metadataBase: new URL("https://varun5.vercel.app"),
+  metadataBase: new URL("https://singhvarun.in"),
   openGraph: {
-    title: "Varun Singh — Where systems get built",
+    title: "varun.singh",
     description:
       "Engineer who builds trading systems, fintech rails, and AI agents that work while everyone sleeps.",
-    url: "https://varun5.vercel.app",
-    siteName: "Varun Singh",
+    url: "https://singhvarun.in",
+    siteName: "varun.singh",
     type: "website",
   },
 };
