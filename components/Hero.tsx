@@ -2,23 +2,24 @@ import { hero, links } from "@/lib/content";
 
 function Pine({
   x,
-  y,
-  scale = 1,
+  baseY,
+  height,
   color,
 }: {
   x: number;
-  y: number;
-  scale?: number;
+  baseY: number;
+  height: number;
   color: string;
 }) {
-  const w = 40 * scale;
-  const h = 28 * scale;
+  const w1 = height * 0.32;
+  const w2 = height * 0.26;
+  const w3 = height * 0.19;
   return (
-    <g transform={`translate(${x},${y})`}>
-      <rect x={-3 * scale} y={0} width={6 * scale} height={9 * scale} fill="#3a2a1d" />
-      <polygon points={`0,${-h * 2.15} ${-w * 0.42},${-h * 1.15} ${w * 0.42},${-h * 1.15}`} fill={color} />
-      <polygon points={`0,${-h * 1.55} ${-w * 0.58},${-h * 0.55} ${w * 0.58},${-h * 0.55}`} fill={color} />
-      <polygon points={`0,${-h * 0.95} ${-w * 0.72},${0} ${w * 0.72},${0}`} fill={color} />
+    <g transform={`translate(${x},${baseY})`}>
+      <rect x={-height * 0.03} y={0} width={height * 0.06} height={height * 0.1} fill="#3a2a1d" />
+      <polygon points={`0,${-height * 0.42} ${-w1},0 ${w1},0`} fill={color} />
+      <polygon points={`0,${-height * 0.72} ${-w2},${-height * 0.28} ${w2},${-height * 0.28}`} fill={color} />
+      <polygon points={`0,${-height} ${-w3},${-height * 0.55} ${w3},${-height * 0.55}`} fill={color} />
     </g>
   );
 }
@@ -26,33 +27,33 @@ function Pine({
 function CabinCluster() {
   return (
     <svg
-      viewBox="0 0 600 560"
+      viewBox="0 0 600 420"
       style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
     >
       {/* back, hazier trees for depth */}
-      <Pine x={95} y={505} scale={0.72} color="#a3b39f" />
-      <Pine x={505} y={498} scale={0.66} color="#a3b39f" />
-      <Pine x={365} y={478} scale={0.55} color="#a3b39f" />
+      <Pine x={130} baseY={380} height={190} color="#9fb0a0" />
+      <Pine x={560} baseY={375} height={175} color="#9fb0a0" />
+      <Pine x={400} baseY={350} height={160} color="#9fb0a0" />
 
       {/* front trees flanking the cabin */}
-      <Pine x={38} y={548} scale={1.15} color="#123a20" />
-      <Pine x={162} y={552} scale={1.0} color="#0f3319" />
-      <Pine x={470} y={550} scale={1.1} color="#123a20" />
-      <Pine x={558} y={540} scale={0.9} color="#0f3319" />
+      <Pine x={40} baseY={405} height={290} color="#123a20" />
+      <Pine x={175} baseY={408} height={250} color="#0f3319" />
+      <Pine x={470} baseY={406} height={275} color="#123a20" />
+      <Pine x={580} baseY={398} height={230} color="#0f3319" />
 
       {/* cabin */}
-      <g transform="translate(300,500)">
-        <polygon points="-66,0 0,-52 66,0" fill="#2c2018" />
-        <rect x="-58" y="0" width="116" height="55" fill="#6b4a34" />
-        <rect x="16" y="-42" width="13" height="32" fill="#2c2018" />
-        <rect x="-19" y="14" width="24" height="24" rx="2" fill="url(#cabinGlow)" />
-        <rect x="20" y="22" width="17" height="28" fill="#241a13" />
+      <g transform="translate(310,402)">
+        <polygon points="-78,-95 0,-170 78,-95" fill="#2c2018" />
+        <rect x="-70" y="-95" width="140" height="95" fill="#6b4a34" />
+        <rect x="20" y="-158" width="15" height="42" fill="#2c2018" />
+        <rect x="-24" y="-68" width="30" height="30" rx="2" fill="url(#cabinGlow)" />
+        <rect x="28" y="-48" width="22" height="48" fill="#241a13" />
       </g>
 
       {/* shoreline */}
-      <ellipse cx="120" cy="558" rx="60" ry="7" fill="#8a8478" opacity=".55" />
-      <ellipse cx="420" cy="558" rx="90" ry="7" fill="#8a8478" opacity=".5" />
-      <ellipse cx="560" cy="556" rx="40" ry="6" fill="#8a8478" opacity=".5" />
+      <ellipse cx="150" cy="412" rx="70" ry="8" fill="#8a8478" opacity=".55" />
+      <ellipse cx="430" cy="414" rx="100" ry="8" fill="#8a8478" opacity=".5" />
+      <ellipse cx="580" cy="410" rx="45" ry="7" fill="#8a8478" opacity=".5" />
 
       <defs>
         <radialGradient id="cabinGlow" cx="50%" cy="50%" r="70%">

@@ -93,25 +93,25 @@ img{max-width:100%;display:block}
   position:relative;min-height:100svh;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;padding:120px 24px 100px;overflow:hidden;
-  background:linear-gradient(180deg,var(--sky-top) 0%,var(--sky-mid) 45%,var(--sky-horizon) 75%,var(--sky-low) 100%);
+  background:linear-gradient(180deg,var(--sky-top) 0%,var(--sky-top) 42%,var(--sky-mid) 60%,var(--sky-horizon) 80%,var(--sky-low) 100%);
   transition:background .4s ease;
 }
 .hero-birds{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .hero-cabin-scene{
   position:absolute;right:0;bottom:0;
-  width:min(46vw,420px);aspect-ratio:600/560;
+  width:min(58vw,480px);aspect-ratio:600/420;
   pointer-events:none;
 }
 [data-theme="dark"] .hero-cabin-scene{display:none}
 .hero-cabin-reflection{
-  position:absolute;left:0;right:0;bottom:-38%;height:38%;overflow:hidden;
+  position:absolute;left:0;right:0;bottom:-30%;height:30%;overflow:hidden;
   transform:scaleY(-1);opacity:.28;
   -webkit-mask-image:linear-gradient(180deg,#000,transparent 80%);
           mask-image:linear-gradient(180deg,#000,transparent 80%);
 }
-.hero-cabin-reflection svg{position:absolute;top:0;width:100%;height:263%}
+.hero-cabin-reflection svg{position:absolute;top:0;width:100%;height:333%}
 .smoke{
-  position:absolute;left:54%;bottom:19%;width:6px;height:6px;border-radius:50%;
+  position:absolute;left:56.25%;bottom:42%;width:6px;height:6px;border-radius:50%;
   background:rgba(255,255,255,.75);filter:blur(2px);
   animation:smoke-rise 4.5s ease-out infinite;
 }
