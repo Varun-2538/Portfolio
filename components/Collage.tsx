@@ -167,17 +167,18 @@ export default function Collage() {
         : 1 - Math.pow(-2 * raw + 2, 2) / 2;
 
       // Uniform scale-toward-center: every chip's offset is reduced by the
-      // same ratio, so their relative spacing just shrinks proportionally
-      // instead of distorting — chips that don't overlap at rest can't
-      // suddenly overlap each other, they just gather inward together.
-      // Capped well short of 1 so they end up loosely gathered around the
-      // orb, not stacked on top of it.
-      const PULL = 0.35;
+      // same ratio, so their relative spacing shrinks proportionally instead
+      // of distorting. Pull is now near-total (chips actually converge into
+      // the orb by the end), so they're also shrunk and faded aggressively
+      // as they close in — by full convergence they're small, faint shapes
+      // dissolving behind the opaque orb (z-index above them) rather than a
+      // legible pile of overlapping cards.
+      const PULL = 0.88;
       nodes.forEach(({ el, offX, offY }) => {
         const tx = -offX * eased * PULL;
         const ty = -offY * eased * PULL;
-        el.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${(1 - eased * 0.08).toFixed(3)})`;
-        el.style.opacity = `${(1 - eased * 0.28).toFixed(2)}`;
+        el.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${(1 - eased * 0.55).toFixed(3)})`;
+        el.style.opacity = `${(1 - eased * 0.85).toFixed(2)}`;
       });
     };
 
