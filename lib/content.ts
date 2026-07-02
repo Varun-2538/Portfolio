@@ -185,8 +185,8 @@ export const finalCta = {
 export const links = {
   email: "varunsingh2538@gmail.com",
   github: "https://github.com/Varun-2538",
-  linkedin: "https://www.linkedin.com/",
-  x: "https://x.com/",
+  linkedin: "https://www.linkedin.com/in/varun2534",
+  x: "https://x.com/Varunsingh2534",
   resume: "https://drive.google.com/file/d/1WbG62j2j62LMX0UuM3iHF-U73dqHvrZE/view?usp=drivesdk",
 };
 
