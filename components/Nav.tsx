@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { links } from "@/lib/content";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,9 +25,12 @@ export default function Nav() {
         <a href="#journey">Journey</a>
         <a href="#faq">FAQ</a>
       </div>
-      <a className="nav-cta" href={`mailto:${links.email}`}>
-        Get in touch
-      </a>
+      <div className="nav-right">
+        <ThemeToggle />
+        <a className="nav-cta" href={`mailto:${links.email}`}>
+          Get in touch
+        </a>
+      </div>
     </nav>
   );
 }
