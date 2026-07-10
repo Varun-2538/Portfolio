@@ -27,6 +27,16 @@ export default function Projects() {
                 <span key={s}>{s}</span>
               ))}
             </div>
+            {p.link && (
+              <a
+                className="proj-link"
+                href={p.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {p.linkLabel} ↗
+              </a>
+            )}
           </Reveal>
         ))}
       </div>

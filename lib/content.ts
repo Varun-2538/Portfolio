@@ -48,13 +48,17 @@ export const projects = [
     title: "ReportEase",
     desc: "AI-based FIR analysis tool using Mistral-AI and Tesseract-OCR to parse incident reports, plus a crime-analytics dashboard over CCTNS data with 96% correct AI suggestions from a fine-tuned model. 1st in problem statement, 2nd runner-up among 1,665 teams at Rajasthan Police Hackathon 1.0.",
     stack: ["Python", "Flask", "Mistral-LLM", "Tesseract-OCR", "Chart.js"],
+    link: "https://github.com/Varun-2538/ReportEase",
+    linkLabel: "GitHub",
   },
   {
     num: "03",
     badge: "Fintech",
-    title: "Remittance Platform",
+    title: "Rootpay",
     desc: "End-to-end US–India remittance product: web app, backend, and React Native mobile app with UPI, KYC, and on/off-ramp integration.",
     stack: ["React Native", "Node.js", "UPI"],
+    link: "https://rootpay.finance",
+    linkLabel: "Live site",
   },
   {
     num: "04",
@@ -69,6 +73,8 @@ export const projects = [
     title: "RemitIndex",
     desc: "Programmatic SEO platform for NRI remittance comparison — an LLM-powered pipeline generating 100+ niche pages with schema-validated content.",
     stack: ["Next.js", "Gemini", "Zod"],
+    link: "https://remitindex.com",
+    linkLabel: "Live site",
   },
   {
     num: "06",
@@ -76,6 +82,8 @@ export const projects = [
     title: "TradeSmart.AI",
     desc: "AI-powered trading platform with 3 specialized agents generating strategies in under 60 seconds. 6 MCP tools orchestrated via Docker, processing 240 candlesticks for real-time market analysis.",
     stack: ["Python", "FastAPI", "Docker", "Cerebras AI", "Meta Llama", "TimescaleDB", "Redis"],
+    link: "https://github.com/Varun-2538/smartTrade.ai",
+    linkLabel: "GitHub",
   },
   {
     num: "07",
@@ -83,6 +91,8 @@ export const projects = [
     title: "KOAN",
     desc: "No-code platform for on-the-go DeFi infra creation using a React Flow-based visual builder, backed by a TypeScript execution engine for component-level testing and workflow integration.",
     stack: ["React", "Solidity", "Firebase", "Tailwind", "IPFS"],
+    link: "https://github.com/Varun-2538/Koan",
+    linkLabel: "GitHub",
   },
 ];
 
